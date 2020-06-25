@@ -6,6 +6,7 @@ import {
 import { PARAGRAPH } from '../../paragraph';
 import { ListType } from '../types';
 import { unwrapList } from './unwrapList';
+import { altWrapNodes } from './altWrapNodes';
 
 export const toggleList = (
   editor: Editor,
@@ -23,6 +24,8 @@ export const toggleList = (
     typeP?: string;
   }
 ) => {
+  altWrapNodes(editor, []);
+  return;
   const isActive = isNodeInSelection(editor, typeList);
 
   unwrapList(editor, { typeUl, typeOl, typeLi });
